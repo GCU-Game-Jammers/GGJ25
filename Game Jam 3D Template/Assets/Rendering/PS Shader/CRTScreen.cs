@@ -10,7 +10,7 @@ public class CRTScreen : MonoBehaviour
     public Animator cameraAnimator;
     private RenderTexture rt;
 
-    float timeToAnimate = 15.0f;
+    float timeToAnimate = 5.0f;
     float timer;
     void Start()
     {
@@ -32,6 +32,12 @@ public class CRTScreen : MonoBehaviour
             cameraAnimator.SetBool("Idle", true);
         }
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+        {
+            ResetTimer();
+        }
+        float x = Input.GetAxis("Mouse X");
+        float y = Input.GetAxis("Mouse Y");
+        if (x != 0 || y != 0)
         {
             ResetTimer();
         }
