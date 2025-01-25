@@ -100,6 +100,7 @@ public class InkDialogueManager : MonoBehaviour
             return;
         }
         
+        AudioManager.instance.StopSFX();
         if (currentStory.canContinue)
         {
             // Stop the previous typing before starting a new one
@@ -161,6 +162,8 @@ public class InkDialogueManager : MonoBehaviour
                     // Set the layout, (If popups were to change the layout or anything)
                     break;
                 case SFX_TAG:
+                    AudioManager.instance.PlaySFX(tagValue);
+                    break;
                 case MUSIC_TAG:
                     // Play the audio
                     //GameManager.AudioManager.Play(tagValue);
