@@ -21,5 +21,9 @@ public class AudioManager : MonoBehaviour
         sfxSource.clip = s;
         sfxSource.Play();
     }
+    public void StopSFX()
+    {
+        sfxSource.Stop();
+    }
 
 }

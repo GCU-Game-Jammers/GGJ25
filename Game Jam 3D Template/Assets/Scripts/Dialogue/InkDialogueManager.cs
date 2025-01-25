@@ -100,6 +100,7 @@ public class InkDialogueManager : MonoBehaviour
             return;
         }
         
+        AudioManager.instance.StopSFX();
         if (currentStory.canContinue)
         {
             // Stop the previous typing before starting a new one
