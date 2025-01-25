@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public bool gameStarted = false;
     public bool hasBottle = false;
 
+    public int bubbleGodLevel = 0;
+
     public Transform camera;
     public float cameraSpeed = 1.0f;
 
@@ -28,4 +30,25 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+    
+    // Clicking Screen
+    public void BuyBubble()
+    {
+        // Play Bubble God Dialogue
+
+        // Maybe spawn here maybe don't u choose
+    }
+
+    // Clicking on spawned bubble
+    public void ClickBubble()
+    {
+        bubbleGodLevel++;
+
+        // Change Bubble God Mesh to Next Stage
+
+        // Change Post Processing to Next Material
+
+        // Play Bubble God Dialogue
+    }
+
 }
