@@ -684,6 +684,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1961745152}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a4cc636c2a2c2846b9f55646d4ba66b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1961745155}
   m_SourcePrefab: {fileID: 100100000, guid: 7a4cc636c2a2c2846b9f55646d4ba66b, type: 3}
 --- !u!1 &1593473465
 GameObject:
@@ -962,7 +966,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1808877830}
   endPoint: {fileID: 71621929}
+  currentBottle: {fileID: 0}
   bottlePrefab: {fileID: 1621475862}
+  canSpawn: 1
+--- !u!64 &1961745155
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961745148}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2235646677733098273, guid: 7a4cc636c2a2c2846b9f55646d4ba66b, type: 3}
 --- !u!1001 &1569045419549544290
 PrefabInstance:
   m_ObjectHideFlags: 0
