@@ -44,7 +44,7 @@ public class Character : MonoBehaviour
         {
             movementSpeed = Speed;
         }
-        if (Input.GetKey(KeyCodeDown.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             // Cut player height and move camera and groundcheck //
             characterController.height = 0.4f;
