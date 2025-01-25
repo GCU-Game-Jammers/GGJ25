@@ -12,9 +12,6 @@ public class NewBehaviourScript : MonoBehaviour
     public float tiltAngle = 10f;
     public float tiltSpeed = 5f;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
