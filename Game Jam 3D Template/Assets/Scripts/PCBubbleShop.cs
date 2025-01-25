@@ -25,6 +25,8 @@ public class PCBubbleShop : MonoBehaviour
         if (!canSpawn) return;
 
         canSpawn = false;
+
+        GameManager.Instance.BuyBubble();
         // Instantiate a bottle prefab at the spawn point
         GameObject bottle = Instantiate(bottlePrefab, spawnPoint.position, spawnPoint.rotation);
         currentBottle = bottle;

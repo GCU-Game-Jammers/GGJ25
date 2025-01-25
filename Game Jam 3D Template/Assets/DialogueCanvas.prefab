@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8882282463565399264}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 129655294350619932}
+        m_TargetAssemblyTypeName: InkDialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1250714261948991207
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: 116}
+  m_AnchoredPosition: {x: -333.8, y: 147.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3620964460304915564
@@ -266,6 +278,7 @@ GameObject:
   - component: {fileID: 5560197992388803577}
   - component: {fileID: 8210027490086140485}
   - component: {fileID: 7906341974541034783}
+  - component: {fileID: 2094005953782226018}
   m_Layer: 5
   m_Name: NPC
   m_TagString: Untagged
@@ -320,8 +333,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -330,6 +343,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2094005953782226018
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473105136302826122}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3981625441528617330
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +509,7 @@ GameObject:
   - component: {fileID: 8512475006973662631}
   - component: {fileID: 2766789913185456932}
   - component: {fileID: 3665259453491074716}
+  - component: {fileID: 4471695927933318221}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -491,7 +526,7 @@ RectTransform:
   m_GameObject: {fileID: 4061434110358086334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5215, y: 1.5215, z: 1.5215}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6462388604127016749}
@@ -504,11 +539,11 @@ RectTransform:
   - {fileID: 3408328934918357318}
   m_Father: {fileID: 7456792011017965885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12, y: -207}
-  m_SizeDelta: {x: -104.409, y: -455.7158}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.0000076293945, y: 23}
+  m_SizeDelta: {x: 950.642, y: 255.26599}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2766789913185456932
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -547,6 +582,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4471695927933318221
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4061434110358086334}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 880aade0596d0774a84a73f1c5849344, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4355965158248206114
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +614,7 @@ GameObject:
   - component: {fileID: 6462388604127016749}
   - component: {fileID: 1884999442489943225}
   - component: {fileID: 6540125450791655832}
+  - component: {fileID: 2043007543478121202}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -612,8 +669,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -622,6 +679,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2043007543478121202
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355965158248206114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4449155020479268695
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,16 +744,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c886577437cc5047902b2ee60997bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 0}
-  dialogueBoxAnimator: {fileID: 0}
-  next: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
-  playerPortraitAnimator: {fileID: 0}
-  npcPortraitAnimator: {fileID: 0}
-  showCasePortraitAnimator: {fileID: 0}
+  dialogueBox: {fileID: 4061434110358086334}
+  dialogueBoxAnimator: {fileID: 4471695927933318221}
+  next: {fileID: 3323783312131612890}
+  dialogueText: {fileID: 49347918822459667}
+  nameText: {fileID: 9215014930084557669}
+  playerPortraitAnimator: {fileID: 2043007543478121202}
+  npcPortraitAnimator: {fileID: 2094005953782226018}
+  showCasePortraitAnimator: {fileID: 5038951341607578273}
   typeSpeed: 0.06
-  panel: {fileID: 0}
+  panel: {fileID: 6074364031121942046}
 --- !u!1 &4652241764630174718
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.990509, y: 312.57}
+  m_AnchoredPosition: {x: -4.9904785, y: 312.57}
   m_SizeDelta: {x: -90.6622, y: 146.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2841601999133288723
@@ -897,6 +975,7 @@ GameObject:
   - component: {fileID: 3408328934918357318}
   - component: {fileID: 1691512406880706525}
   - component: {fileID: 4091411300292517385}
+  - component: {fileID: 5038951341607578273}
   m_Layer: 5
   m_Name: Showcase
   m_TagString: Untagged
@@ -961,6 +1040,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &5038951341607578273
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253066416016819533}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8008088808441379172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,11 +1211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96

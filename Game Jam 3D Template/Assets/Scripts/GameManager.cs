@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     public Transform camera;
     public float cameraSpeed = 1.0f;
 
+    [SerializeField] private TextAsset[] buyDialogueinkJson;
+
+    [SerializeField] private TextAsset[] bubbleLevelsinkJson;
+
     private void Awake()
     {
         if (Instance == null)
@@ -34,9 +38,12 @@ public class GameManager : MonoBehaviour
     // Clicking Screen
     public void BuyBubble()
     {
-        // Play Bubble God Dialogue
+        // Play Bubble God Dialogue (Random shop)
+        int i = Random.Range(0, buyDialogueinkJson.Length);
+        InkDialogueManager.GetDialogueManager().StartDialogue(buyDialogueinkJson[i]);
 
         // Maybe spawn here maybe don't u choose
+        // Spawning in PCBubbleShop.cs
     }
 
     // Clicking on spawned bubble
@@ -49,6 +56,7 @@ public class GameManager : MonoBehaviour
         // Change Post Processing to Next Material
 
         // Play Bubble God Dialogue
+        InkDialogueManager.GetDialogueManager().StartDialogue(bubbleLevelsinkJson[bubbleGodLevel]);
     }
 
 }
