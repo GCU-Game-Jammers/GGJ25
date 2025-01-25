@@ -968,6 +968,7 @@ MonoBehaviour:
   endPoint: {fileID: 71621929}
   currentBottle: {fileID: 0}
   bottlePrefab: {fileID: 1621475862}
+  image: {fileID: 96506033}
   canSpawn: 1
 --- !u!64 &1961745155
 MeshCollider:

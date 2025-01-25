@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PCBubbleShop : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class PCBubbleShop : MonoBehaviour
     [SerializeField] private Transform endPoint;
     [SerializeField] private GameObject currentBottle;
     [SerializeField] private GameObject bottlePrefab;
+
+    [SerializeField] private Image image;
 
     [SerializeField] private bool canSpawn = true;
 
@@ -25,12 +28,14 @@ public class PCBubbleShop : MonoBehaviour
         // Instantiate a bottle prefab at the spawn point
         GameObject bottle = Instantiate(bottlePrefab, spawnPoint.position, spawnPoint.rotation);
         currentBottle = bottle;
+        image.gameObject.SetActive(false);
         // lerp bottle to the end point
         StartCoroutine(LerpBottle(bottle.transform));
     }
     public void EnableSpawn()
     {
         canSpawn = true;
+        image.gameObject.SetActive(true);
     }
 
     IEnumerator LerpBottle(Transform bottle)
