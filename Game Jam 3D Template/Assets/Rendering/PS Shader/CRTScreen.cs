@@ -15,8 +15,8 @@ public class CRTScreen : MonoBehaviour
         rt = new RenderTexture(256, 224, 16, RenderTextureFormat.ARGB32);
         rt.Create();
 
-        crtMaterial.mainTexture = rt;
-
+        //crtMaterial.mainTexture = rt;
+        crtMaterial.SetTexture("_EmissionMap", rt);
         camToRender.targetTexture = rt;
     }
 
