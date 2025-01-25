@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public bool gameStarted = false;
+    public bool hasBottle = false;
 
     public Transform camera;
     public float cameraSpeed = 1.0f;
