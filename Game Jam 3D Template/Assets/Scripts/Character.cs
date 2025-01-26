@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public Camera playerCamera;
     private CharacterController characterController;
     public float BaseSpeed = 5f;         // Movement speed
     public float sprintModifier = 1.5f;
@@ -48,7 +49,7 @@ public class Character : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 10))
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, 10))
             {
                 if (hit.transform.CompareTag("BubbleBottle") && !GameManager.Instance.hasBottle)
                 {

@@ -146,13 +146,13 @@ public class GameManager : MonoBehaviour
         switch (bubbleGodLevel)
         {
             case 0:
-                ambienceAudio.volume = .1f;
+                ambienceAudio.volume = .5f;
                 break;
             case 1:
-                ambienceAudio.volume = .25f;
+                ambienceAudio.volume = .75f;
                 break;
             case 2:
-                ambienceAudio.volume = .75f;
+                ambienceAudio.volume = .9f;
                 break;
             case 3:
                 ambienceAudio.volume = 1;
