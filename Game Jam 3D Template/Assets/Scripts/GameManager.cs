@@ -46,6 +46,20 @@ public class GameManager : MonoBehaviour
             if (bubbleGodLevel == 3) bubbleGodLevel = -1;
             ClickBubble();
         }
+        if (Input.GetKeyDown(KeyCode.F8))
+            hasBottle = true;
+    }
+
+    public void BubbleGodFullyBubbled()
+    {
+        hasBottle = false;
+
+        // Play bubble god full voice
+
+        if (bubbleGodLevel == 3)
+        {
+            //BLOW UP BUBBLE
+        }
     }
     
     // Clicking Screen
