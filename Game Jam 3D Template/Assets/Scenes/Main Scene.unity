@@ -5043,6 +5043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc96183db1ac4ba41a6c624f56e47da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleModifier: 1.5
 --- !u!1 &91237559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3af7ed378d345af4fbbf4d31ede1732d,
@@ -16778,6 +16779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc96183db1ac4ba41a6c624f56e47da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleModifier: 1.5
 --- !u!1 &962123265
 GameObject:
   m_ObjectHideFlags: 0
@@ -32108,7 +32110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1500113980
 Transform:
   m_ObjectHideFlags: 0
@@ -32207,6 +32209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc96183db1ac4ba41a6c624f56e47da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleModifier: 1.5
 --- !u!1001 &1536727555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38150,6 +38153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc96183db1ac4ba41a6c624f56e47da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleModifier: 1.5
 --- !u!1 &2132989724
 GameObject:
   m_ObjectHideFlags: 0
