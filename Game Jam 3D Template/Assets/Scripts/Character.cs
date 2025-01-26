@@ -44,6 +44,7 @@ public class Character : MonoBehaviour
         {
             movementSpeed = Speed;
         }
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
             // Cut player height and move camera and groundcheck //
@@ -54,11 +55,38 @@ public class Character : MonoBehaviour
             // Reset player height and move camera and groundcheck //
             characterController.height = 1f;
         }
+
+        Move();
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 10))
+            {
+                if (hit.transform.CompareTag("BubbleBottle") && !GameManager.Instance.hasBottle)
+                {
+                    GameManager.Instance.hasBottle = true;
+                    Destroy(hit.transform.gameObject);
+                }
+                else if (hit.transform.CompareTag("BubblePC") && !GameManager.Instance.hasBottle)
+                {
+                    hit.transform.gameObject.GetComponent<PCBubbleShop>().SpawnBottle();
+                }
+                else if (hit.transform.CompareTag("BubbleGod") && GameManager.Instance.hasBottle)
+                {
+                    GameManager.Instance.hasBottle = false;
+                    GameManager.Instance.ClickBubble();
+                }
+            }
+        }
+    }
+
+    private void Move()
+    {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
-       
-        characterController.Move(move * Time.deltaTime * movementSpeed);
+
+        characterController.Move(movementSpeed * Time.deltaTime * move);
 
         // Jumping logic
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -72,7 +100,5 @@ public class Character : MonoBehaviour
         // Move the character based on vertical velocity
         characterController.Move(velocity * Time.deltaTime);
 
-        
-      
     }
 }
