@@ -285,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5560197992388803577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6462388604127016749
 RectTransform:
   m_ObjectHideFlags: 0
@@ -752,7 +752,7 @@ MonoBehaviour:
   playerPortraitAnimator: {fileID: 2043007543478121202}
   npcPortraitAnimator: {fileID: 2094005953782226018}
   showCasePortraitAnimator: {fileID: 5038951341607578273}
-  typeSpeed: 0.06
+  typeSpeed: 0.05
   panel: {fileID: 6074364031121942046}
 --- !u!1 &4652241764630174718
 GameObject:

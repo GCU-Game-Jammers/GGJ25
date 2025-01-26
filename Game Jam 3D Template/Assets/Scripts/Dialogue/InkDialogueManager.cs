@@ -77,17 +77,17 @@ public class InkDialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueBox.SetActive(true);
         
-        playerPortraitAnimator.gameObject.SetActive(true);
-        npcPortraitAnimator.gameObject.SetActive(true);
-        showCasePortraitAnimator.gameObject.SetActive(true);
+        //playerPortraitAnimator.gameObject.SetActive(true);
+        //npcPortraitAnimator.gameObject.SetActive(true);
+        //showCasePortraitAnimator.gameObject.SetActive(true);
         panel.SetActive(false);
         
         dialogueBoxAnimator.SetBool("IsOpen", true);
 
         nameText.text = "";
-        playerPortraitAnimator.Play("default"); // grey state
-        npcPortraitAnimator.Play("default"); // grey state
-        showCasePortraitAnimator.Play("default"); // grey state
+        //playerPortraitAnimator.Play("default"); // grey state
+        //npcPortraitAnimator.Play("default"); // grey state
+        //showCasePortraitAnimator.Play("default"); // grey state
 
         DisplayNextSentence();
     }
@@ -100,7 +100,8 @@ public class InkDialogueManager : MonoBehaviour
             return;
         }
         
-        AudioManager.instance.StopSFX();
+        //if (AudioManager.instance) AudioManager.instance.StopSFX();
+
         if (currentStory.canContinue)
         {
             // Stop the previous typing before starting a new one
@@ -211,10 +212,15 @@ public class InkDialogueManager : MonoBehaviour
         }
 
         // Show Continue icon 
-        next.gameObject.SetActive(true);
+        //next.gameObject.SetActive(true);
+
         canPressContinue = true;
         submit = false;
         dialogueIsActive = false;
+
+        // And just force close it for this project by calling the next sentence  (rather than pressing the contiune button)
+        // It would suit this more 
+        DisplayNextSentence();
     }
 
     private void EndDialogue()

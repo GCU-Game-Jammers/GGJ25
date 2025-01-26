@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         // Change Post Processing to Next Material
 
         // Play Bubble God Dialogue
-        InkDialogueManager.GetDialogueManager().StartDialogue(bubbleLevelsinkJson[bubbleGodLevel]);
+        InkDialogueManager.GetDialogueManager().StartDialogue(bubbleLevelsinkJson[bubbleGodLevel-1]);
     }
 
 }
