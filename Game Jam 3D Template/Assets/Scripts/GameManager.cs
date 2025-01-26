@@ -75,6 +75,12 @@ public class GameManager : MonoBehaviour
         {
             //BLOW UP BUBBLE
         }
+
+        if (bubbleGodLevel > bubbleFeedsinkJson.Length) // stop at max level
+        {
+            return;
+        }
+        InkDialogueManager.GetDialogueManager().StartDialogue(bubbleFeedsinkJson[bubbleGodLevel]);
     }
     
     // Clicking Screen

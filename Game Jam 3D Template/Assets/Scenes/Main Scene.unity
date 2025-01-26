@@ -16128,6 +16128,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3555763168059707957, guid: 6db246d7516e9644c96d507ff6c3e6e3,
+        type: 3}
+      propertyPath: bottlePrefab
+      value: 
+      objectReference: {fileID: 8182117224379531993, guid: bf773e52148830948a4e83b20622d306,
+        type: 3}
+    - target: {fileID: 3555763168059707957, guid: 6db246d7516e9644c96d507ff6c3e6e3,
+        type: 3}
+      propertyPath: currentBottle
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21686,7 +21697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambienceAudio: {fileID: 981485076}
   gameStarted: 0
-  hasBottle: 0
+  hasBottle: 1
   bubbleGodAnimator: {fileID: 1055464707}
   ditherMaterial: {fileID: 2100000, guid: 014f3095a6e423d45bec94f8a65d9231, type: 2}
   hasBubbleUI: {fileID: 320003329}
