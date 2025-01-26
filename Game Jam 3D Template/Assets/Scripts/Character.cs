@@ -49,7 +49,7 @@ public class Character : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, 10))
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, 10, LayerMask.NameToLayer("UI")))
             {
                 if (hit.transform.CompareTag("BubbleBottle") && !GameManager.Instance.hasBottle)
                 {

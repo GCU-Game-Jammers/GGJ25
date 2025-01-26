@@ -29,6 +29,7 @@ public class PCBubbleShop : MonoBehaviour
         GameManager.Instance.BuyBubble();
         // Instantiate a bottle prefab at the spawn point
         GameObject bottle = Instantiate(bottlePrefab, spawnPoint.position, spawnPoint.rotation);
+        bottle.transform.Rotate(new Vector3(0.0f, 0.0f, 135 +90));
         currentBottle = bottle;
         image.gameObject.SetActive(false);
         // lerp bottle to the end point
