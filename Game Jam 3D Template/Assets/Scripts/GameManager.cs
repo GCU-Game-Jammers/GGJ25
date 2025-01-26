@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public bool gameStarted = false;
     public bool hasBottle = false;
+    public Animator bubbleGodAnimator;
+    public Material ditherMaterial;
 
     public int bubbleGodLevel = 0;
 
@@ -25,13 +27,20 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        bubbleGodAnimator.SetInteger("BubbleLevel", 0);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1) && Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKey(KeyCode.F1) && Input.GetKey(KeyCode.F2))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            if (bubbleGodLevel == 3) bubbleGodLevel = -1;
+            ClickBubble();
         }
     }
     
@@ -50,8 +59,8 @@ public class GameManager : MonoBehaviour
     public void ClickBubble()
     {
         bubbleGodLevel++;
-
-        // Change Bubble God Mesh to Next Stage
+        bubbleGodAnimator.SetInteger("BubbleLevel", bubbleGodLevel);
+        
 
         // Change Post Processing to Next Material
 
