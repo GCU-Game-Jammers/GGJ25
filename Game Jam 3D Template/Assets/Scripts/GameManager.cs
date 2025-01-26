@@ -109,9 +109,10 @@ public class GameManager : MonoBehaviour
         // Play Bubble God Dialogue
         if (bubbleGodLevel > bubbleFeedsinkJson.Length) // stop at max level
         {
+            Debug.Log("Bubble God is fully bubbled, Please Pop the bubble now");
             return;
         }
-        InkDialogueManager.GetDialogueManager().StartDialogue(buyDialogueinkJson[bubbleGodLevel]);
+        InkDialogueManager.GetDialogueManager().StartDialogue(buyDialogueinkJson[bubbleGodLevel - 1]);
     }
 
 

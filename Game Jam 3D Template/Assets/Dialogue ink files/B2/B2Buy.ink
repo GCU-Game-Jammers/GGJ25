@@ -1,1 +1,1 @@
-Bubbles on the double, ha ha hahahhahaaa #speaker:Bubble God #sfx:B2Buy
+Bubbles on the double, ha ha hahahhahaaa #speaker:Bubble God #npcPortrait:B2 #sfx:B2Buy

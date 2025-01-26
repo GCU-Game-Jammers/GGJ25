@@ -1,1 +1,1 @@
-Your hard work will be soon rewarded mortal. The end is nigh. #speaker:Bubble God #sfx:B4Buy 
+Your hard work will be soon rewarded mortal. The end is nigh. #speaker:Bubble God #npcPortrait:B4 #sfx:B4Buy 

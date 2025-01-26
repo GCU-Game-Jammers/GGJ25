@@ -1,1 +1,1 @@
-YES, YES. One more bottle and I will ascend to the heavens. #speaker: Bubble God #sfx:B4Feed
+YES, YES. One more bottle and I will ascend to the heavens. #speaker: Bubble God #npcPortrait:B4 #sfx:B4Feed

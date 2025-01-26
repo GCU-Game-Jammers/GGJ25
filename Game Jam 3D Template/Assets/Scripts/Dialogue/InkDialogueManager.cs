@@ -80,7 +80,7 @@ public class InkDialogueManager : MonoBehaviour
         dialogueBox.SetActive(true);
         
         //playerPortraitAnimator.gameObject.SetActive(true);
-        //npcPortraitAnimator.gameObject.SetActive(true);
+        npcPortraitAnimator.gameObject.SetActive(true);
         //showCasePortraitAnimator.gameObject.SetActive(true);
         panel.SetActive(false);
         
@@ -88,7 +88,7 @@ public class InkDialogueManager : MonoBehaviour
 
         nameText.text = "";
         //playerPortraitAnimator.Play("default"); // grey state
-        //npcPortraitAnimator.Play("default"); // grey state
+        npcPortraitAnimator.Play("default"); // grey state
         //showCasePortraitAnimator.Play("default"); // grey state
 
         DisplayNextSentence();

@@ -1,1 +1,1 @@
-Dude, come on keep these bubbles coming! #speaker:Bubble God #sfx:B2Hurry
+Dude, come on keep these bubbles coming! #speaker:Bubble God #npcPortrait:B2 #sfx:B2Hurry

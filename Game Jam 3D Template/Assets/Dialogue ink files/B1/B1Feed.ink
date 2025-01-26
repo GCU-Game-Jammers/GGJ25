@@ -1,1 +1,1 @@
-YIPPIE!! Thanks for those bubbles that's really great I really appreciate that. #speaker:Bubble God #sfx:B1Feed
+YIPPIE!! Thanks for those bubbles that's really great I really appreciate that. #speaker:Bubble God #npcPortrait:B1 #sfx:B1Feed

@@ -1,1 +1,1 @@
-Is that a stick of gum in your pocket or are you just happy to see me?  These bubbles really do hit the spot though. #speaker:Bubble God #sfx:B2Feed
+Is that a stick of gum in your pocket or are you just happy to see me?  These bubbles really do hit the spot though. #speaker:Bubble God #npcPortrait:B2 #sfx:B2Feed
