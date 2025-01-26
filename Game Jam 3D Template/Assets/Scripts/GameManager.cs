@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public GameObject fadetowhiteanimator;
+
     public AudioSource ambienceAudio;
 
     public bool gameStarted = false;
@@ -46,7 +48,6 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F9))
         {
-            if (bubbleGodLevel == 3) bubbleGodLevel = -1;
             ClickBubble();
         }
         if (Input.GetKeyDown(KeyCode.F8))
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
             hasBubbleUI.SetActive(false);
             NotHasBubbleUI.SetActive(true);
         }
+
     }
 
     public void BubbleGodFullyBubbled()
@@ -101,18 +103,25 @@ public class GameManager : MonoBehaviour
         bubbleGodLevel++;
         bubbleGodAnimator.SetInteger("BubbleLevel", bubbleGodLevel);
 
+        // Play Bubble God Dialogue
+        if (bubbleGodLevel > 3) // stop at max level
+        {
+            Debug.Log("Bubble God is fully bubbled, Please Pop the bubble now");
+            bubbleGodAnimator.SetBool("Pop", true);
+
+            return;
+        }
 
         // Change Post Processing to Next Material
         HandlePostProcessing();
         HandleAmbience();
 
-        // Play Bubble God Dialogue
-        if (bubbleGodLevel > bubbleFeedsinkJson.Length) // stop at max level
-        {
-            Debug.Log("Bubble God is fully bubbled, Please Pop the bubble now");
-            return;
-        }
+      
         InkDialogueManager.GetDialogueManager().StartDialogue(buyDialogueinkJson[bubbleGodLevel - 1]);
+    }
+    public void FadeToWhite()
+    {
+        fadetowhiteanimator.SetActive(true);
     }
 
 
@@ -137,7 +146,7 @@ public class GameManager : MonoBehaviour
                 ditherMaterial.SetFloat("_Color_Resolution", 256);
                 break;
             default:
-                throw new System.Exception("THE BUBBLE GOD'S POWER LEVEL... ITS... OVER 3!!!!");
+                break;
         }
     }
 
@@ -158,7 +167,7 @@ public class GameManager : MonoBehaviour
                 ambienceAudio.volume = 1;
                 break;
             default:
-                throw new System.Exception("THE BUBBLE GOD'S POWER LEVEL... ITS... OVER 3!!!!");
+                break;
         }
     }
 }
