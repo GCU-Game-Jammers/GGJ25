@@ -1,0 +1,1 @@
+HURRY PEASANT.  I HUNGER FOR BUBBLES, BRING THEM TO ME. #speaker:Bubble God #sfx:B3Hurry

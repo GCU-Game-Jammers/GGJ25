@@ -59,11 +59,6 @@ public class Character : MonoBehaviour
                 {
                     hit.transform.gameObject.GetComponent<PCBubbleShop>().SpawnBottle();
                 }
-                else if (hit.transform.CompareTag("BubbleGod") && GameManager.Instance.hasBottle)
-                {
-                    GameManager.Instance.hasBottle = false;
-                    GameManager.Instance.ClickBubble();
-                }
             }
         }
     }

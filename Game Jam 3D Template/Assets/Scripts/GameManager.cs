@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TextAsset[] buyDialogueinkJson;
 
-    [SerializeField] private TextAsset[] bubbleLevelsinkJson;
+    [SerializeField] private TextAsset[] bubbleFeedsinkJson;
+
+    [SerializeField] private TextAsset[] hurryinkJson;
 
     private void Awake()
     {
@@ -65,9 +67,8 @@ public class GameManager : MonoBehaviour
     // Clicking Screen
     public void BuyBubble()
     {
-        // Play Bubble God Dialogue (Random shop)
-        int i = Random.Range(0, buyDialogueinkJson.Length);
-        InkDialogueManager.GetDialogueManager().StartDialogue(buyDialogueinkJson[i]);
+        // Play Bubble God Dialogue
+        InkDialogueManager.GetDialogueManager().StartDialogue(buyDialogueinkJson[bubbleGodLevel]);
 
         // Maybe spawn here maybe don't u choose
         // Spawning in PCBubbleShop.cs
@@ -85,11 +86,11 @@ public class GameManager : MonoBehaviour
         HandleAmbience();
 
         // Play Bubble God Dialogue
-        if (bubbleGodLevel > bubbleLevelsinkJson.Length) // stop at max level
+        if (bubbleGodLevel > bubbleFeedsinkJson.Length) // stop at max level
         {
             return;
         }
-        InkDialogueManager.GetDialogueManager().StartDialogue(bubbleLevelsinkJson[bubbleGodLevel-1]);
+        InkDialogueManager.GetDialogueManager().StartDialogue(bubbleFeedsinkJson[bubbleGodLevel]);
     }
 
 
