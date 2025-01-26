@@ -24,11 +24,11 @@ public class InkDialogueManager : MonoBehaviour
     [Header("Misc")]
     
     [SerializeField] private float typeSpeed = 0.06f;
+    private float temptypeSpeed;
 
     private Story currentStory;
     
     private bool dialogueIsActive = false;
-
     private bool canPressContinue = true;
 
     private bool submit = false;
@@ -44,6 +44,7 @@ public class InkDialogueManager : MonoBehaviour
     private const string SFX_TAG = "sfx";
     private const string MUSIC_TAG = "music";
     private const string EVENT_TAG = "event";
+    private const string TYPESPEED_TAG = "typeSpeed";
 
     private Coroutine typeSentenceCoroutine; // Set This to keep track if the coroutine is running to prevent multiple instances
 
@@ -52,6 +53,7 @@ public class InkDialogueManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        temptypeSpeed = typeSpeed;
         dialogueIsActive = false;
         dialogueBox.SetActive(false);
     }
@@ -99,8 +101,8 @@ public class InkDialogueManager : MonoBehaviour
             submit = true;
             return;
         }
-        
         //if (AudioManager.instance) AudioManager.instance.StopSFX();
+        typeSpeed = temptypeSpeed; // revert
 
         if (currentStory.canContinue)
         {
@@ -128,8 +130,7 @@ public class InkDialogueManager : MonoBehaviour
             {
                 Debug.LogError("Invalid tag: " + tag);
                 continue;
-            }
-            
+            }            
             string tagKey = tagParts[0].Trim();
             string tagValue = tagParts[1].Trim();
 
@@ -173,8 +174,11 @@ public class InkDialogueManager : MonoBehaviour
                     // Trigger the event
                     //GameManager.EventManager.PlayEvent(tagValue);
                     break;
+                case TYPESPEED_TAG:
+                    // Set the type speed BY OVERWRITING THE DEFAULT, for extra effect, might be cool for something idk 
+                    typeSpeed = float.Parse(tagValue);
+                    break;
             }
-
         }
     }
         
@@ -220,7 +224,18 @@ public class InkDialogueManager : MonoBehaviour
 
         // And just force close it for this project by calling the next sentence  (rather than pressing the contiune button)
         // It would suit this more 
+        StartCoroutine(Wait());
+    }
+
+    IEnumerator Wait()
+    {
+        while (AudioManager.instance.CheckPlaying())
+        {
+            // Wait for the audio to finish before closing the dialogue subtitles
+            yield return null;
+        }
         DisplayNextSentence();
+        yield return null;
     }
 
     private void EndDialogue()

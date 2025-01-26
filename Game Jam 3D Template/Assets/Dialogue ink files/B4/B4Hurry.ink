@@ -1,0 +1,1 @@
+Make haste mortal. It will be over soon. #speaker:Bubble God #sfx:B4Hurry

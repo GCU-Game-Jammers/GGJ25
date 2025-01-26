@@ -56,6 +56,10 @@ public class GameManager : MonoBehaviour
         // Change Post Processing to Next Material
 
         // Play Bubble God Dialogue
+        if (bubbleGodLevel > bubbleLevelsinkJson.Length) // stop at max level
+        {
+            return;
+        }
         InkDialogueManager.GetDialogueManager().StartDialogue(bubbleLevelsinkJson[bubbleGodLevel-1]);
     }
 

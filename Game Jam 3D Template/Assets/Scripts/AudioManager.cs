@@ -26,4 +26,9 @@ public class AudioManager : MonoBehaviour
         sfxSource.Stop();
     }
 
+    public bool CheckPlaying()
+    {
+        return sfxSource.isPlaying;
+    }
+
 }
