@@ -7,11 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public AudioSource ambienceAudio;
+
     public bool gameStarted = false;
     public bool hasBottle = false;
     public Animator bubbleGodAnimator;
     public Material ditherMaterial;
-
+    
     public int bubbleGodLevel = 0;
 
     public Transform camera;
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         bubbleGodAnimator.SetInteger("BubbleLevel", 0);
+        HandlePostProcessing();
+        HandleAmbience();
     }
 
     private void Update()
@@ -60,9 +64,11 @@ public class GameManager : MonoBehaviour
     {
         bubbleGodLevel++;
         bubbleGodAnimator.SetInteger("BubbleLevel", bubbleGodLevel);
-        
+
 
         // Change Post Processing to Next Material
+        HandlePostProcessing();
+        HandleAmbience();
 
         // Play Bubble God Dialogue
         if (bubbleGodLevel > bubbleLevelsinkJson.Length) // stop at max level
@@ -72,4 +78,50 @@ public class GameManager : MonoBehaviour
         InkDialogueManager.GetDialogueManager().StartDialogue(bubbleLevelsinkJson[bubbleGodLevel-1]);
     }
 
+
+    private void HandlePostProcessing()
+    {
+        switch(bubbleGodLevel)
+        {
+            case 0:
+                ditherMaterial.SetFloat("_Dither_Spread", 0.001f);
+                ditherMaterial.SetFloat("_Color_Resolution", 1024);
+                break;
+            case 1:
+                ditherMaterial.SetFloat("_Dither_Spread", 0.001f);
+                ditherMaterial.SetFloat("_Color_Resolution", 128);
+                break;
+            case 2:
+                ditherMaterial.SetFloat("_Dither_Spread", 0.005f);
+                ditherMaterial.SetFloat("_Color_Resolution", 1024);
+                break;
+            case 3:
+                ditherMaterial.SetFloat("_Dither_Spread", 0.01f);
+                ditherMaterial.SetFloat("_Color_Resolution", 256);
+                break;
+            default:
+                throw new System.Exception("THE BUBBLE GOD'S POWER LEVEL... ITS... OVER 3!!!!");
+        }
+    }
+
+    private void HandleAmbience()
+    {
+        switch (bubbleGodLevel)
+        {
+            case 0:
+                ambienceAudio.volume = .1f;
+                break;
+            case 1:
+                ambienceAudio.volume = .25f;
+                break;
+            case 2:
+                ambienceAudio.volume = .75f;
+                break;
+            case 3:
+                ambienceAudio.volume = 1;
+                break;
+            default:
+                throw new System.Exception("THE BUBBLE GOD'S POWER LEVEL... ITS... OVER 3!!!!");
+        }
+    }
 }
