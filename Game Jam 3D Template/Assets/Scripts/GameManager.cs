@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public bool hasBottle = false;
     public Animator bubbleGodAnimator;
     public Material ditherMaterial;
-    
+    public GameObject hasBubbleUI;
+    public GameObject NotHasBubbleUI;
     public int bubbleGodLevel = 0;
 
     public Transform camera;
@@ -48,6 +49,18 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F8))
             hasBottle = true;
+
+
+        if (hasBottle)
+        {
+            hasBubbleUI.SetActive(true);
+            NotHasBubbleUI.SetActive(false);
+        }
+        else
+        {
+            hasBubbleUI.SetActive(false);
+            NotHasBubbleUI.SetActive(true);
+        }
     }
 
     public void BubbleGodFullyBubbled()
