@@ -38,13 +38,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Gloss: 0.1
+    - _Gloss: 0.01
     - _Metalic: 0.1
     - _NormalStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RippleDissolve: 5
-    - _RippleScale: 5
+    - _RippleScale: 20
     - _RippleSpeed: 0.75
     m_Colors:
     - _BaseColour: {r: 0.1769758, g: 0.5233359, b: 0.9150943, a: 0}
