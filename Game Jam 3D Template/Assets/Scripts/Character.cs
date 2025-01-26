@@ -53,11 +53,13 @@ public class Character : MonoBehaviour
                 if (hit.transform.CompareTag("BubbleBottle") && !GameManager.Instance.hasBottle)
                 {
                     GameManager.Instance.hasBottle = true;
+                    GameManager.Instance.ClickBubble();
                     Destroy(hit.transform.gameObject);
                 }
                 else if (hit.transform.CompareTag("BubblePC") && !GameManager.Instance.hasBottle)
                 {
                     hit.transform.gameObject.GetComponent<PCBubbleShop>().SpawnBottle();
+
                 }
             }
         }

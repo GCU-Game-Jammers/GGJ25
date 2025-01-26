@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
 
     public void BubbleGodFullyBubbled()
     {
+        if (!hasBottle) return;
+
         hasBottle = false;
 
         // Play bubble god full voice
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
     public void BuyBubble()
     {
         // Play Bubble God Dialogue
-        InkDialogueManager.GetDialogueManager().StartDialogue(buyDialogueinkJson[bubbleGodLevel]);
+        InkDialogueManager.GetDialogueManager().StartDialogue(hurryinkJson[bubbleGodLevel]);
 
         // Maybe spawn here maybe don't u choose
         // Spawning in PCBubbleShop.cs
@@ -109,7 +111,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        InkDialogueManager.GetDialogueManager().StartDialogue(bubbleFeedsinkJson[bubbleGodLevel]);
+        InkDialogueManager.GetDialogueManager().StartDialogue(buyDialogueinkJson[bubbleGodLevel]);
     }
 
 
