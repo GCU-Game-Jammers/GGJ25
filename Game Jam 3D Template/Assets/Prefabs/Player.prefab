@@ -131,12 +131,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a593858fc44b1e428ef3176db0e26b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  BaseSpeed: 10
+  sprintModifier: 1.5
+  crouchModifier: 0.5
+  slideDecaySpeed: 0.025
+  movementSpeed: 0
+  isCrouched: 0
   Sprint: 20
+  CrouchSpeed: 4
+  slideSpeed: 20
+  slideDecayRate: 5
   JumpHeight: 2
   Gravity: -9.81
-  movementSpeed: 0
-  crouch: 0
 --- !u!143 &2996856048355742653
 CharacterController:
   m_ObjectHideFlags: 0

@@ -9,14 +9,17 @@ public class Character : MonoBehaviour
     public float BaseSpeed = 5f;         // Movement speed
     public float sprintModifier = 1.5f;
     public float crouchModifier = .5f;
-    
+    public float slideDecaySpeed = .1f;
+    private Vector3 slideDir;
+    private float currSlideSpeed;
+
     private Vector3 velocity;        // For vertical movement
     private bool isGrounded;         // Check if the player is grounded
     public float movementSpeed;
-    public bool crouch = false;
-
+    public bool isCrouched = false;
+    private bool isSprinting = false;
     private bool isSliding = false;
-    private bool sprintCheck = false;
+
 
     [Header("Old Stuff Can Ignore")]
     public float Sprint = 20f;
@@ -71,48 +74,81 @@ public class Character : MonoBehaviour
         if (isGrounded && velocity.y < 0)
             velocity.y = -2f;
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        characterController.Move(movementSpeed * Time.deltaTime * move);
-
-        // Jumping logic
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isSliding)
         {
-            velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            characterController.Move(slideDir * currSlideSpeed * Time.deltaTime);
         }
+        else
+        {
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+            Vector3 move = transform.right * x + transform.forward * z;
 
-        // Apply gravity to vertical velocity
-        velocity.y += Gravity * Time.deltaTime;
-        
-        // Move the character based on vertical velocity
-        characterController.Move(velocity * Time.deltaTime);
+            characterController.Move(movementSpeed * Time.deltaTime * move);
+
+            // Jumping logic
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            }
+
+            // Apply gravity to vertical velocity
+            velocity.y += Gravity * Time.deltaTime;
+
+            // Move the character based on vertical velocity
+            characterController.Move(velocity * Time.deltaTime);
+        }
     }
 
 
     private void CalculateSpeed()
     {
         movementSpeed = BaseSpeed;
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        
+        // Sliding
+        if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKey(KeyCode.W))
         {
-            movementSpeed *= sprintModifier;
-            sprintCheck = true;
-        }
-        else
-            sprintCheck = false;
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            movementSpeed *= crouchModifier;
+            currSlideSpeed = BaseSpeed;
+            if (isSprinting)
+                currSlideSpeed *= sprintModifier;
+            slideDir = transform.forward;
+            isSliding = true;
             transform.localScale = new Vector3(1.0f, 0.5f, 1.0f);
-            crouch = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            isSliding = false;
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+
+
+        if (isSliding)
+        {
+            currSlideSpeed -= slideDecaySpeed;
+            currSlideSpeed = Mathf.Max(0.0f, currSlideSpeed);
         }
         else
         {
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            crouch = false;
-        }
+            // Modifiers
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                movementSpeed *= sprintModifier;
+                isSprinting = true;
+            }
+            else
+                isSprinting = false;
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                movementSpeed *= crouchModifier;
+                transform.localScale = new Vector3(1.0f, 0.5f, 1.0f);
+                isCrouched = true;
+            }
+            else
+            {
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                isCrouched = false;
+            }
+        }        
     }
 
     private void ScottCalculateSpeed()
@@ -123,25 +159,25 @@ public class Character : MonoBehaviour
         {
             velocity.y = -2f; // Small value to keep grounded
         }
-        if (crouch && isSliding == false)
+        if (isCrouched && isSliding == false)
         {
             movementSpeed = CrouchSpeed;
         }
-        else if (Input.GetKey(KeyCode.LeftShift) && isSliding == false && crouch == false)
+        else if (Input.GetKey(KeyCode.LeftShift) && isSliding == false && isCrouched == false)
         {
             movementSpeed = Sprint;
-            sprintCheck = true;
+            isSprinting = true;
         }
         else if (isSliding == false)
         {
             movementSpeed = BaseSpeed;
-            sprintCheck = false;
+            isSprinting = false;
         }
         // Movement input
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && crouch == false)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isCrouched == false)
         {
-            if (sprintCheck == true && isSliding == false)
+            if (isSprinting == true && isSliding == false)
             {
                 isSliding = true;
                 currentSlideSpeed = slideSpeed;
@@ -150,14 +186,14 @@ public class Character : MonoBehaviour
             else
             {
                 transform.localScale = new Vector3(1.0f, 0.5f, 1.0f);
-                crouch = true;
+                isCrouched = true;
             }
         }
 
-        else if (Input.GetKeyUp(KeyCode.LeftControl) && crouch == true && isSliding == false)
+        else if (Input.GetKeyUp(KeyCode.LeftControl) && isCrouched == true && isSliding == false)
         {
             transform.localScale = new Vector3(1.0f, 1f, 1.0f);
-            crouch = false;
+            isCrouched = false;
         }
 
         if (isSliding == true)
@@ -168,7 +204,7 @@ public class Character : MonoBehaviour
             if (currentSlideSpeed <= BaseSpeed)
             {
                 isSliding = false;
-                crouch = true;
+                isCrouched = true;
             }
         }
     }
