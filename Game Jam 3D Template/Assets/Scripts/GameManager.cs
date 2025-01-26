@@ -75,9 +75,13 @@ public class GameManager : MonoBehaviour
 
         // Play bubble god full voice
 
-        if (bubbleGodLevel == 3)
+        // Play Bubble God Dialogue
+        if (bubbleGodLevel > 3) // stop at max level
         {
-            //BLOW UP BUBBLE
+            Debug.Log("Bubble God is fully bubbled, Please Pop the bubble now");
+            bubbleGodAnimator.SetBool("Pop", true);
+            InkDialogueManager.GetDialogueManager().StartDialogue(bubbleFeedsinkJson[4]);
+            return;
         }
 
         if (bubbleGodLevel > bubbleFeedsinkJson.Length) // stop at max level
@@ -103,14 +107,7 @@ public class GameManager : MonoBehaviour
         bubbleGodLevel++;
         bubbleGodAnimator.SetInteger("BubbleLevel", bubbleGodLevel);
 
-        // Play Bubble God Dialogue
-        if (bubbleGodLevel > 3) // stop at max level
-        {
-            Debug.Log("Bubble God is fully bubbled, Please Pop the bubble now");
-            bubbleGodAnimator.SetBool("Pop", true);
 
-            return;
-        }
 
         // Change Post Processing to Next Material
         HandlePostProcessing();
